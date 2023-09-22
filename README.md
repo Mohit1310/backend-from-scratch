@@ -9,3 +9,4 @@
 - Creating controllers folder & adding all the functions of GET, POST, PATCH, DELETE
 - Testing in POSTMAN and checking that all routes are successfully working
 - Creating the frontend, adding tailwind and getting all the tasks
+- Creating Update and delete
