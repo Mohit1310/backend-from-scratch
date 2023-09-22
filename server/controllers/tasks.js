@@ -3,7 +3,7 @@ const Task = require("../models/taskSchema");
 const getAllTasks = async (req, res) => {
   try {
     const allTasks = await Task.find({});
-    res.status(200).json({ allTasks });
+    res.status(200).json(allTasks);
   } catch (error) {
     res.status(500).json({ msg: error });
   }
@@ -12,7 +12,7 @@ const getAllTasks = async (req, res) => {
 const createTask = async (req, res) => {
   try {
     const createTask = await Task.create(req.body);
-    res.status(201).json({ createTask });
+    res.status(201).json(createTask);
   } catch (error) {
     res.status(500).json({ msg: error });
   }
@@ -24,7 +24,7 @@ const getSingleTask = async (req, res) => {
     if (!getTask) {
       return res.status(404).json({ msg: "Task not found" });
     }
-    res.status(200).json({ getTask });
+    res.status(200).json(getTask);
   } catch (error) {
     res.status(500).json({ error });
   }
@@ -40,7 +40,7 @@ const updateTask = async (req, res) => {
     if (!updateTask) {
       return res.status(404).json({ msg: "Task not found" });
     }
-    res.status(200).json({ updateTask });
+    res.status(200).json(updateTask);
   } catch (error) {
     res.status(500).json({ error });
   }
@@ -52,7 +52,7 @@ const deleteTask = async (req, res) => {
     if (!deleteTask) {
       return res.status(404).json({ msg: "Task not found" });
     }
-    res.status(200).json({ deleteTask });
+    res.status(200).json(deleteTask);
   } catch (error) {
     res.status(500).json({ error });
   }
