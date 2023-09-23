@@ -1,4 +1,4 @@
-# backend-from-scratch
+# Task-Manager
 - Creating server
 - First route ('/')
 - Creating taskSchema  
