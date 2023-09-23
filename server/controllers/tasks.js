@@ -46,6 +46,24 @@ const updateTask = async (req, res) => {
   }
 };
 
+const toggleCompletedTask = async (req, res) => {
+  try {
+    const toggleTask = await Task.findOne({ _id: req.params.id });
+    if (!toggleTask) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+
+    // Toggle the completed field
+    toggleTask.completed = !toggleTask.completed;
+
+    await toggleTask.save();
+
+    res.status(200).json({task: toggleTask});
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 const deleteTask = async (req, res) => {
   try {
     const deleteTask = await Task.findOneAndDelete({ _id: req.params.id });
@@ -64,4 +82,5 @@ module.exports = {
   getSingleTask,
   deleteTask,
   updateTask,
+  toggleCompletedTask,
 };

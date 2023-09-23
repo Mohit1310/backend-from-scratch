@@ -5,6 +5,7 @@ import {
   deleteTask,
   getAllTasks,
   updateTask,
+  toggleTodo
 } from "./utils/handleApi";
 
 const App = () => {
@@ -62,6 +63,7 @@ const App = () => {
             text={task.task}
             updateTodo={() => updateMode(task._id, task.task)}
             deleteTodo={() => deleteTask(task._id, setToDo)}
+            isCompleted={() => toggleTodo(task._id)}
           />
         ))}
       </div>

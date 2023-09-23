@@ -6,9 +6,15 @@ const {
   getSingleTask,
   deleteTask,
   updateTask,
+  toggleCompletedTask,
 } = require("../controllers/tasks");
 
 router.route("/").get(getAllTasks).post(createTask);
-router.route("/:id").get(getSingleTask).patch(updateTask).delete(deleteTask);
+router
+  .route("/:id")
+  .get(getSingleTask)
+  .get(toggleCompletedTask)
+  .patch(updateTask)
+  .delete(deleteTask);
 
 module.exports = router;

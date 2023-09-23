@@ -31,9 +31,18 @@ const updateTask = async (e, _id, input, setInput, setToDo, setIsUpdating) => {
   }
 };
 
+const toggleTodo = (_id) => async () => {
+  try {
+    await axios.get(`${baseUrl}/${_id}`);
+    
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const deleteTask = async (id, setToDo) => {
   await axios.delete(`${baseUrl}/${id}`, id);
   getAllTasks(setToDo);
 };
 
-export { getAllTasks, addTask, updateTask, deleteTask };
+export { getAllTasks, addTask, updateTask, deleteTask, toggleTodo };
